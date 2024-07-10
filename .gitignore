@@ -1,0 +1,6 @@
+simple_game.exe
+build/
+assets/sounds/
+*.wav
+*.mp3
+.DS_STORE
