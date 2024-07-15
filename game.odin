@@ -1,6 +1,5 @@
 package snake
 
-// import "core:fmt"
 import rl "vendor:raylib"
 
 WINDOW_SIZE :: 1000
@@ -41,6 +40,7 @@ calculate_score :: proc() {
 
 main :: proc() {
 	rl.SetConfigFlags({.VSYNC_HINT})
+	rl.SetTargetFPS(500)
 	rl.InitWindow(WINDOW_SIZE, WINDOW_SIZE, "Snake")
 	defer rl.CloseWindow()
 
