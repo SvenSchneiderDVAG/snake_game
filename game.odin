@@ -89,10 +89,12 @@ main :: proc() {
 				next_part_pos = cur_pos
 			}
 
-			tick_timer = TICK_RATE + tick_timer // you could lose some time so we add tick_timer
+			tick_timer = TICK_RATE + tick_timer // you could lose some time so we add the tick_timer
 		}
 
 		rl.BeginDrawing()
+		defer rl.EndDrawing()
+
 		rl.ClearBackground({76, 53, 83, 255})
 
 		camera := rl.Camera2D {
@@ -100,6 +102,7 @@ main :: proc() {
 		}
 
 		rl.BeginMode2D(camera)
+		defer rl.EndMode2D()
 
 		for i in 0 ..< snake_length {
 			head_rect := rl.Rectangle {
@@ -116,8 +119,5 @@ main :: proc() {
 			rl.DrawText("Game Over", 4, 4, 25, rl.RED)
 			rl.DrawText("Press Enter to restart", 4, 30, 15, rl.WHITE)
 		}
-
-		rl.EndMode2D()
-		rl.EndDrawing()
 	}
 }
