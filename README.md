@@ -1,6 +1,8 @@
 # Little Snake game in Odin
 
-following a Youtube Tutorial of Karl Zylinski
+This is me following a [Youtube Tutorial of Karl Zylinski](https://youtu.be/lfiQNCNUifI?si=bLrplmdsTGnrw8UP).
+Pleae subscribe to his channel, he has a lot of interesting content.
+
 Remember to install the Odin package before running the game
 
 ## Play the game
