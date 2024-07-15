@@ -12,7 +12,8 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "odin build . -debug -out:build/debug",
+      "command": "odin build . -debug -out:build/debug.exe",
+      // for mac "command": "odin build . -debug -out:build/debug",
       "group": "build"
     },
     {
