@@ -39,6 +39,8 @@ calculate_score :: proc() {
 
 
 main :: proc() {
+	free_all(context.temp_allocator)
+
 	rl.SetConfigFlags({.VSYNC_HINT})
 	rl.SetTargetFPS(500)
 	rl.InitWindow(WINDOW_SIZE, WINDOW_SIZE, "Snake")
@@ -102,7 +104,6 @@ main :: proc() {
 		}
 
 		rl.BeginMode2D(camera)
-		defer rl.EndMode2D()
 
 		for i in 0 ..< snake_length {
 			head_rect := rl.Rectangle {
@@ -119,5 +120,7 @@ main :: proc() {
 			rl.DrawText("Game Over", 4, 4, 25, rl.RED)
 			rl.DrawText("Press Enter to restart", 4, 30, 15, rl.WHITE)
 		}
+
+		rl.EndMode2D()
 	}
 }

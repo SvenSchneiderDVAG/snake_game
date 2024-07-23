@@ -6,14 +6,26 @@
     {
       "label": "mkdir",
       "type": "shell",
-      "command": "cmd",
-      "args": ["/C", "if not exist .\\build mkdir .\\build"]
+      "windows": {
+        "command": "cmd",
+        "args": ["/C", "if not exist .\\build mkdir .\\build"]
+      },
+      "osx": {
+        "command": "mkdir",
+        "args": ["-p", "./build"]
+      }
     },
     {
       "label": "build",
       "type": "shell",
-      "command": "odin build . -debug -out:build/debug.exe",
-      // for mac "command": "odin build . -debug -out:build/debug",
+      "windows": {
+        "command": "odin",
+        "args": ["build", ".", "-debug", "-out:build\\debug.exe"]
+      },
+      "osx": {
+        "command": "odin",
+        "args": ["build", ".", "-debug", "-out:build/debug"]
+      },
       "group": "build"
     },
     {

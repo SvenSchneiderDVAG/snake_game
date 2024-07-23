@@ -6,7 +6,7 @@
       "request": "launch",
       "preLaunchTask": "Build",
       "name": "Debug on macOS",
-      "program": "${workspaceFolder}/build/debug", // Adjust the executable name as needed
+      "program": "${workspaceFolder}/build/debug",
       "args": [],
       "cwd": "${workspaceFolder}",
       "MIMode": "lldb"
