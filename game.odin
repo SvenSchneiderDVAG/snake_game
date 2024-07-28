@@ -72,8 +72,9 @@ display_score :: proc() {
 
 main :: proc() {
 	rl.SetConfigFlags({.VSYNC_HINT})
-	rl.SetTargetFPS(500)
+	rl.SetTargetFPS(100)
 	rl.InitWindow(WINDOW_SIZE, WINDOW_SIZE, "Snake")
+	rl.HideCursor()
 	defer rl.CloseWindow()
 
 	restart()
@@ -83,6 +84,8 @@ main :: proc() {
 		if rl.IsKeyDown(.DOWN)  { move_direction = {0, 1} }
 		if rl.IsKeyDown(.LEFT)  { move_direction = {-1, 0} }
 		if rl.IsKeyDown(.RIGHT) { move_direction = {1, 0} }
+
+		dt:= f32(rl.GetFrameTime())
 
 		if game_over {
 			if rl.IsKeyPressed(.ENTER) {
@@ -125,7 +128,7 @@ main :: proc() {
 				}
 			}
 
-			tick_timer = TICK_RATE + tick_timer // you could lose some time so we add the tick_timer
+			tick_timer = TICK_RATE + tick_timer * dt // you could lose some time so we add the tick_timer
 		}
 
 		rl.BeginDrawing()
